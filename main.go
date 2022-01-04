@@ -99,9 +99,9 @@ func main() {
 	fmt.Println("Sum by pressing style: ", pressingStyle(12, 32.902))
 	// Min and Max of every type
 	fmt.Println(math.MaxInt8)
-	fmt.Println(math.MaxInt16)
-	fmt.Println(math.MaxInt32)
-	fmt.Println(math.MaxInt64)
+	// fmt.Println(math.MaxInt16)
+	// fmt.Println(math.MaxInt32)
+	// fmt.Println(math.MaxInt64)
 	fmt.Println(math.Floor(2.7))    // Floor returns the greatest integer value less than or equal to x.
 	fmt.Println(math.Ceil(2.7))     // Ceil returns the least integer value greater than or equal to x.
 	fmt.Println(math.Max(342, 452)) // Find tha lagest value or number of tw numbers
@@ -112,6 +112,117 @@ func main() {
 	fmt.Println()
 	var asciiChrter byte = 'A'
 	fmt.Println(asciiChrter)
+	const initValue = "Have a nice day!" // This is another way to declare variable by using const key word
+	fmt.Println(initValue)
+
+	// 3. If else condition
+	num := 21
+	if num == 21 {
+		fmt.Println("Your age is 21")
+	} else {
+		fmt.Println("It's not your age!!!")
+	}
+	// Another way using if else statement
+	if num := 21; num > 30 {
+		fmt.Println("Your so old!")
+	} else {
+		fmt.Println("You so young!")
+	}
+	// Switch - case
+	// Single value in one line
+	yourname := "Phuc"
+	switch yourname {
+	case "Phuc":
+		fmt.Println(yourname, "is your name")
+	case "Sam":
+		fmt.Println(yourname, "is also your name")
+	default:
+		fmt.Println("???")
+	}
+	hobbies := "Sleep"
+	switch hobbies {
+	case "Sleep", "Swim", "Soccer", "Basketball", "Tenis", "Mountain-Climb":
+		fmt.Println("You are kind of amazing")
+	default:
+		fmt.Println("???")
+	}
+	// Fallthrough ,Break, Goto, Defer
+	// 1. Fallthrough - Keep check all of condition in switch
+	country := "VN"
+	switch country {
+	case "VN":
+		fmt.Println("You are Viet Nam")
+		fallthrough
+	case "SP":
+		fmt.Println("You are Singapore")
+		fallthrough
+	default:
+		fmt.Println("???")
+	}
+	// 2. Break - check conditon in case and break if you don't want to keep tracking the next case
+	number := 10
+	switch number {
+	case 10:
+		if number == 10 {
+			fmt.Println("Break here")
+			break
+		}
+		fmt.Println("Number = 10")
+		fallthrough
+	case 20:
+		fmt.Println("Number = 20")
+		fallthrough
+	default:
+		fmt.Println("???")
+	}
+	// 2. Goto - if satisfy condition,let go to another check inside of case
+	checker := 21
+	switch checker {
+	case 10:
+		if number == 10 {
+			fmt.Println("Break here")
+			break
+		}
+		fmt.Println("Number = 10")
+		fallthrough
+	case 21:
+		fmt.Println("Waiting...")
+		if checker == 21 {
+			goto ageAccepted // go to case ageAccepted
+
+		}
+	ageAccepted: // execute that
+		fmt.Println(checker, "That is your age,congrat!!")
+	default:
+		fmt.Println("???")
+	}
+	// 4. Defer - A defer statement defers the execution of a function until the surrounding function returns.
+	defer fmt.Println("last output")
+	// Loops
+	for i := 0; i < 10; i++ {
+		fmt.Print(i)
+	}
+	// Break and continue in loops
+	// 1. Break
+	for age := 0; age < 30; age++ {
+		if age == 21 {
+			fmt.Println("\n", age)
+			break
+		}
+	}
+	// 2. Continue
+	for age := 0; age < 30; age++ {
+		if age != 21 {
+			continue
+		} else {
+			fmt.Println(age)
+		}
+	}
+	for i, j := 0, 0; i <= 5 && j < 6; i, j = i+1, j+1 {
+		if i == 5 {
+			fmt.Println(i, j)
+		}
+	}
 }
 
 func variables() string {
