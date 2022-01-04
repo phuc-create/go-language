@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -223,6 +226,16 @@ func main() {
 			fmt.Println(i, j)
 		}
 	}
+	array := []int{3, 100, 38, 10, 24, 1, 34}
+	sort.Ints(array)
+	fmt.Println(array)
+	infors := somthing("Phuc", 21, "VN", true)
+	fmt.Println(infors)
+	TwoToOne("hello ửold", "ádasd")
+}
+
+func helpers() {
+	panic("unimplemented")
 }
 
 func variables() string {
@@ -252,4 +265,41 @@ func testBool() int {
 func pressingStyle(a int, b float64) (result int) {
 	result = a + int(b)
 	return
+}
+func somthing(name string, age int, country string, gender bool) string {
+	gen := func(g bool) string {
+		if g {
+			return "Man"
+		}
+		return "Girl"
+	}(gender)
+	lastAge := strconv.Itoa(age)
+	return "Hey " + gen + ", your name is " + name + ",and you are " + lastAge + " years old, you from " + country
+}
+
+func TwoToOne(s1 string, s2 string) string {
+	chars := strings.Split(s1+s2, "")
+	fmt.Println(chars, chars[2])
+	sort.Strings(chars)
+	result := ""
+	for _, s := range chars {
+		chr := string(s)
+		if !strings.Contains(result, chr) {
+			result = result + chr
+		}
+	}
+	return result
+	/* Another way
+	func TwoToOne(s1 string, s2 string) string {
+		result:=""
+		s := strings.Split(s1+s2,"")
+		sort.Strings(s)
+		for _,c := range s {
+			if result == "" || c != string(result[len(result)-1]) {
+				result+=c
+			}
+		}
+		return result
+	}
+	*/
 }
