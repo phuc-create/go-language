@@ -1,16 +1,27 @@
 package main
 
 import (
+	// "bufio"
 	"fmt"
 	"math"
+
+	// "os"
 	"sort"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	fmt.Println("Hello world")
+	// scanner := bufio.NewScanner(os.Stdin)
+	// fmt.Printf("Type somthing: ")
+	// scanner.Scan()
+	// input, _ := strconv.ParseInt(scanner.Text(), 10, 64)
+
+	// fmt.Printf("Now you are %d years old\n", 2021-input)
 	fmt.Println(variables())
+	var test1 float64 = 457
+	var test2 int = 3
+	fmt.Println("Devide is:", test1/float64(test2))
 	fmt.Println("Result of for loop through 10 is", forLoop(10))
 	// Declare Variables in Go lang
 	// We have 4 ways to declare any variable in go by following these ways
@@ -200,7 +211,7 @@ func main() {
 		fmt.Println("???")
 	}
 	// 4. Defer - A defer statement defers the execution of a function until the surrounding function returns.
-	defer fmt.Println("last output")
+	// defer fmt.Println("last output")
 	// Loops
 	for i := 0; i < 10; i++ {
 		fmt.Print(i)
@@ -232,6 +243,22 @@ func main() {
 	infors := somthing("Phuc", 21, "VN", true)
 	fmt.Println(infors)
 	TwoToOne("hello ửold", "ádasd")
+	// %T => Type
+	// %s => String
+	// %q => Double quote string
+	// %v => Value of variable default format
+	// %t => True or False
+	// %b => base2 (for interger only)
+	// %o => base8
+	// %d => base10
+	// %x => base16
+	// %f => default width & default precision
+	// %9f => 9 width & default precision
+	// %.2f => default width & 2 precision
+	// %9.2f => 9 width & 2 precision
+	// %09d => padding digits t length 9 with preceeding 0's
+	// %-9d => padding with spaces (width 4,left justified)
+	fmt.Printf("Number: %-5q  hello world", "Phuc")
 }
 
 func helpers() {
