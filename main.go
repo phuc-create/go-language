@@ -1,24 +1,16 @@
 package main
 
 import (
+	"fmt"
 	golesson "main/go-lesson"
-	"sync"
+	"main/utility"
 )
 
 // "os"
 
 func main() {
-	// Checking function
-	// fmt.Println(algorithms.TestBool())
 
 	// Pressing style in Go lang
-	// fmt.Println("Sum by pressing style: ", utility.PressingStyle(12, 32.902))
-	// go routine
-	var waitGroup sync.WaitGroup
-	waitGroup.Add(1)
-	go func() {
-		golesson.Concurrency("Dog")
-		waitGroup.Done()
-	}()
-	waitGroup.Wait()
+	fmt.Println("sum from 1 to 12: ", utility.ForLoop(12))
+	golesson.DeadLockChecker()
 }
