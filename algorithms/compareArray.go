@@ -27,6 +27,9 @@
 package algorithms
 
 func Comp(array1 []int, array2 []int) bool {
+	if (array1 == nil) || (array2 == nil) {
+		return false
+	}
 	if len(array1) != len(array2) {
 		return false
 	}
