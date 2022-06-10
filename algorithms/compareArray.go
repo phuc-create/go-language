@@ -27,6 +27,38 @@
 package algorithms
 
 func Comp(array1 []int, array2 []int) bool {
+	if len(array1) != len(array2) {
+		return false
+	}
+
+	map1 := make(map[int]int)
+	map2 := make(map[int]int)
+	for index, _ := range array1 {
+		key1 := array1[index] * array1[index]
+		key2 := array2[index]
+
+		// map 1
+		if _, err := map1[key1]; !err {
+			map1[key1] = 1
+		} else {
+			map1[key1] = map1[key1] + 1
+		}
+
+		// map 2
+		if _, err := map2[key2]; !err {
+			map2[key2] = 1
+		} else {
+			map2[key2] = map2[key2] + 1
+		}
+	}
+
+	for key, value := range map1 {
+		if value2, err := map2[key]; !err {
+			return false
+		} else if value2 != value {
+			return false
+		}
+	}
 	// your code
 	return true
 }
