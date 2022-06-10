@@ -26,6 +26,12 @@
 
 package algorithms
 
+import (
+	"reflect"
+	"sort"
+)
+
+// Nhan sensei solution
 func Comp(array1 []int, array2 []int) bool {
 	if (array1 == nil) || (array2 == nil) {
 		return false
@@ -40,19 +46,9 @@ func Comp(array1 []int, array2 []int) bool {
 		key1 := array1[index] * array1[index]
 		key2 := array2[index]
 
-		// map 1
-		if _, err := map1[key1]; !err {
-			map1[key1] = 1
-		} else {
-			map1[key1] = map1[key1] + 1
-		}
+		map1[key1] = map1[key1] + 1
+		map2[key2] = map2[key2] + 1
 
-		// map 2
-		if _, err := map2[key2]; !err {
-			map2[key2] = 1
-		} else {
-			map2[key2] = map2[key2] + 1
-		}
 	}
 
 	for key, value := range map1 {
@@ -62,8 +58,23 @@ func Comp(array1 []int, array2 []int) bool {
 			return false
 		}
 	}
-	// your code
 	return true
+}
+
+//Sam solution
+func Comp2(array1 []int, array2 []int) bool {
+	if array1 == nil || array2 == nil || (len(array1) != len(array2)) {
+		return false
+	}
+
+	for i, value := range array1 {
+		num := value * value
+		array1[i] = num
+	}
+
+	sort.Ints(array2[:])
+	sort.Ints(array1[:])
+	return reflect.DeepEqual(array1, array2)
 }
 
 // It("should handle basic cases", func() {
