@@ -1,5 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/phuc.nguyen/Documents/Nguyen Huu phuc/go-language'
+go run main.go
 make: Leaving directory `/Users/phuc.nguyen/Documents/Nguyen Huu phuc/go-language'
  
-make: *** No targets.  Stop.
-
