@@ -42,7 +42,7 @@ func Comp(array1 []int, array2 []int) bool {
 
 	map1 := make(map[int]int)
 	map2 := make(map[int]int)
-	for index, _ := range array1 {
+	for index := range array1 {
 		key1 := array1[index] * array1[index]
 		key2 := array2[index]
 
