@@ -78,3 +78,14 @@ func Introduce(name string) (string, error) {
 	}
 	return "", errors.New("name not found")
 }
+
+func StrucDeclare() []interface{} {
+	var (
+		id      int    = 111
+		name    string = "Sam"
+		age     int    = 21
+		address string = "52T5"
+	)
+	infor := []interface{}{id, name, age, address}
+	return infor
+}

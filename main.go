@@ -22,7 +22,23 @@ func main() {
 	// a := []int{-10000000, 100000000}
 	// b := []int{100000000000000, 10000000000000000}
 	// fmt.Println(algorithms.Comp2(a, b))
+	person := golesson.StrucDeclare()
+	fmt.Println(person)
 	http.HandleFunc("/hello", golesson.HelloConnecter)
 	http.HandleFunc("/headers", golesson.HelloHeader)
-	http.ListenAndServe(":7070", nil)
+
+	// func Closure() func() int {
+	// 	i := 0
+	// 	return func() int {
+	// 		i++
+	// 		return i
+	// 	}
+	// }
+	closeExample := golesson.Closure()
+
+	fmt.Println(closeExample())
+	fmt.Println(closeExample())
+	fmt.Println(closeExample())
+
+	// http.ListenAndServe(":7070", nil)
 }

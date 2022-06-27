@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Wed Jun 22 14:52:51 2022
+# Make data base, printed on Mon Jun 27 10:52:34 2022
 
 # Variables
 
@@ -27,7 +24,6 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
- 
 CURDIR := /Users/phuc.nguyen/Documents/Nguyen Huu phuc/go-language
 # makefile
 SHELL = /bin/sh
@@ -46,7 +42,7 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/st/vfvvq6kj5gv1sjwgyv1wndk80000gn/T/vscode-ipc-a0e5c63c-4530-49e8-a2ed-ef7b396e34b0.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/st/vfvvq6kj5gv1sjwgyv1wndk80000gn/T/vscode-ipc-8670bf5a-c8b6-4b54-89c4-ce878d916a43.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -62,7 +58,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.6wLP1MhwOr/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.dA6BqZb5Rj/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -108,7 +104,6 @@ USER = phuc.nguyen
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
- 
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # default
 .VARIABLES := 
@@ -155,7 +150,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3618
+VSCODE_PID = 2857
 # variable set hash-table stats:
 # Load=70/1024=7%, Rehash=0, Collisions=2/94=2%
 
@@ -186,7 +181,6 @@ all:
 
 # Not a target:
 .SUFFIXES:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -194,11 +188,19 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-10 13:09:35
+#  Last modified 2022-06-22 15:31:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+build:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 4):
+	go build main.go
+	
 
 # Not a target:
 .DEFAULT:
@@ -218,12 +220,12 @@ run-2:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 4):
+#  commands to execute (from `Makefile', line 6):
 	need fix
 	
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/18=0%
+# Load=7/1024=1%, Rehash=0, Collisions=0/19=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -235,6 +237,8 @@ run-2:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jun 22 14:52:51 2022
+# Finished Make data base on Mon Jun 27 10:52:34 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+
