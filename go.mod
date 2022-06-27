@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/MichaelTJones/walk v0.0.0-20161122175330-4748e29d5718 // indirect
 	github.com/gokyle/fswatch v0.0.0-20121217010029-1dbdf8320a69 // indirect
+	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/howeyc/gopass v0.0.0-20210920133722-c8aef6fb66ef // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
