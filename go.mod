@@ -2,6 +2,8 @@ module main
 
 go 1.17
 
+require github.com/lib/pq v1.10.6
+
 require (
 	github.com/MichaelTJones/walk v0.0.0-20161122175330-4748e29d5718 // indirect
 	github.com/go-sql-driver/mysql v1.5.0 // indirect
