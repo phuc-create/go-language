@@ -1,0 +1,10 @@
+node_modules
+targets.log
+/.vscode
+.vscode
+/configurationCache.log
+configurationCache.log
+
+dryrun.log
+
+*.log
