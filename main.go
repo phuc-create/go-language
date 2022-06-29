@@ -34,11 +34,12 @@ func main() {
 	// 		return i
 	// 	}
 	// }
-	closeExample := golesson.Closure()
-
-	fmt.Println(closeExample())
-	fmt.Println(closeExample())
-	fmt.Println(closeExample())
+	// closeExample := golesson.Closure()
+	golesson.RunTest()
+	//
+	// 	fmt.Println(closeExample())
+	// 	fmt.Println(closeExample())
+	// 	fmt.Println(closeExample())
 
 	// http.ListenAndServe(":7070", nil)
 }
