@@ -1,10 +1,12 @@
 node_modules
-targets.log
 /.vscode
 .vscode
 /configurationCache.log
 configurationCache.log
 
+targets.log
 dryrun.log
+/targets.log
+/dryrun.log
 
 *.log
