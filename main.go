@@ -2,19 +2,19 @@ package main
 
 import (
 	"fmt"
-	golesson "main/go-lesson"
-	"main/utility"
-	"net/http"
-	// "strconv"
-	// "sync"
+	"strconv"
+	"time"
 )
+
+// "strconv"
+// "sync"
 
 // "os"
 
 func main() {
 
 	// Pressing style in Go lang
-	fmt.Println("sum from 1 to 12: ", utility.ForLoop(12))
+	// fmt.Println("sum from 1 to 12: ", utility.ForLoop(12))
 	// golesson.DeadLockChecker()
 	// fmt.Println(rand.Intn(10)) RANDOM NUMBER
 	// a := []int{121, 144, 19, 161, 19, 144, 19, 11}
@@ -22,10 +22,10 @@ func main() {
 	// a := []int{-10000000, 100000000}
 	// b := []int{100000000000000, 10000000000000000}
 	// fmt.Println(algorithms.Comp2(a, b))
-	person := golesson.StrucDeclare()
-	fmt.Println(person)
-	http.HandleFunc("/hello", golesson.HelloConnecter)
-	http.HandleFunc("/headers", golesson.HelloHeader)
+	// person := golesson.StrucDeclare()
+	// fmt.Println(person)
+	// http.HandleFunc("/hello", golesson.HelloConnecter)
+	// http.HandleFunc("/headers", golesson.HelloHeader)
 
 	// func Closure() func() int {
 	// 	i := 0
@@ -35,11 +35,46 @@ func main() {
 	// 	}
 	// }
 	// closeExample := golesson.Closure()
-	golesson.RunTest()
+	// golesson.RunTest()
 	//
 	// 	fmt.Println(closeExample())
 	// 	fmt.Println(closeExample())
 	// 	fmt.Println(closeExample())
 
 	// http.ListenAndServe(":7070", nil)
+	// fmt.Println(TwoSum([]int{1, 2, 3}, 4))
+	// fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690))
+	// fmt.Println(TwoSum([]int{2, 2, 3}, 4))
+	c := make(chan string)
+	// c2 := make(chan string)
+	go count("goroutine", c)
+	// count("concurency", c2)
+	for {
+		msg, open := <-c
+		if !open {
+			break
+		}
+		fmt.Println(msg)
+	}
+	// time.Sleep(time.Second * 2000)
+}
+
+func count(name string, c chan string) {
+	for i := 1; i <= 5; i++ {
+		c <- name + "-" + strconv.Itoa(i)
+		time.Sleep(time.Millisecond * 500)
+	}
+	close(c)
+}
+
+func TwoSum(numbers []int, target int) [2]int {
+	//   begin := numbers[0]
+	for idx1, value := range numbers {
+		for idx2, check := range numbers {
+			if target-value == check && idx1 != idx2 {
+				return [2]int{idx1, idx2}
+			}
+		}
+	}
+	return [2]int{0, 0}
 }

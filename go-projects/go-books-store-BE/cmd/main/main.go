@@ -3,19 +3,21 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"os"
 
+	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 )
 
 type ConfigType string
 
-const (
-	host     ConfigType = "localhost"
-	port     int        = 5432
-	user     ConfigType = "postgres"
-	password ConfigType = "1"
-	dbname   ConfigType = "bookstore"
-)
+// const (
+// 	host     ConfigType = "localhost"
+// 	port     int        = 5432
+// 	user     ConfigType = "postgres"
+// 	password ConfigType = "1"
+// 	dbname   ConfigType = "bookstore"
+// )
 
 var (
 	id         int
@@ -23,12 +25,41 @@ var (
 	book_price int
 	author_id  int
 )
+var db *gorm.DB
+
+type Person struct {
+	gorm.Model
+	Name  string
+	Email string `gorm:"typevarchar(100);unique_index"`
+	Books []Book
+}
+
+type Book struct {
+	gorm.Model
+	ID       string `json:"name"`
+	Author   string `json:"author"`
+	Public   bool   `json:"public"`
+	PersonID int
+}
+
+type Author struct {
+	gorm.Model
+	ID       string `json:"name"`
+	Author   string `json:"author"`
+	Public   bool   `json:"public"`
+	PersonID int
+}
 
 func main() {
 	// Connect ------------------------------------------------------------------------------------
-	connStr := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
+	// Get infor connection from .env to avoid sensitive case
+	dbHost := os.Getenv("DB_HOST")
+	dbName := os.Getenv("DB_NAME")
+	dbPort := os.Getenv("DB_PORT")
+	dbUsername := os.Getenv("DB_USERNAME")
+	dbPassword := os.Getenv("DB_PASSWORD")
+	// create connection string
+	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", dbHost, dbPort, dbUsername, dbPassword, dbName)
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		panic(err)
