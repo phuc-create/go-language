@@ -28,4 +28,9 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	helpers.ResponseWithJSON(w, http.StatusOK, list)
 }
 
+func CreateUser(w http.ResponseWriter, r *http.Request) {
+	// var user entities.User
+	// err := json.NewDecoder(r.Body).Decode(&user)
+}
+
 // func UpdateUser()

@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
-	"time"
+	golesson "main/go-lesson"
 )
 
 // "strconv"
@@ -45,27 +43,37 @@ func main() {
 	// fmt.Println(TwoSum([]int{1, 2, 3}, 4))
 	// fmt.Println(TwoSum([]int{1234, 5678, 9012}, 14690))
 	// fmt.Println(TwoSum([]int{2, 2, 3}, 4))
-	c := make(chan string)
+	// c := make(chan string)
 	// c2 := make(chan string)
-	go count("goroutine", c)
-	// count("concurency", c2)
-	for {
-		msg, open := <-c
-		if !open {
-			break
-		}
-		fmt.Println(msg)
-	}
+	// go count("goroutine", c)
+	// // count("concurency", c2)
+	// for {
+	// 	msg, open := <-c
+	// 	if !open {
+	// 		break
+	// 	}
+	// 	fmt.Println(msg)
+	// }
 	// time.Sleep(time.Second * 2000)
+	x := "Hello world"
+	var y *string = &x
+	*y = "Hi Mom"
+	golesson.PointerLesson(3)
+	// fmt.Printf("Type of x is: %T\n", x)
+	// changeValue(&x)
+	// fmt.Printf("Value of y is: %v\n", y)
+	// fmt.Printf("Reference value of y is: %v\n", *y)
+	// fmt.Println("Address of x is:", &x)
+
 }
 
-func count(name string, c chan string) {
-	for i := 1; i <= 5; i++ {
-		c <- name + "-" + strconv.Itoa(i)
-		time.Sleep(time.Millisecond * 500)
-	}
-	close(c)
-}
+// func count(name string, c chan string) {
+// 	for i := 1; i <= 5; i++ {
+// 		c <- name + "-" + strconv.Itoa(i)
+// 		time.Sleep(time.Millisecond * 500)
+// 	}
+// 	close(c)
+// }
 
 func TwoSum(numbers []int, target int) [2]int {
 	//   begin := numbers[0]
