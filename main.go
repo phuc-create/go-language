@@ -1,6 +1,8 @@
 package main
 
 import (
+	"context"
+	"fmt"
 	golesson "main/go-lesson"
 )
 
@@ -10,6 +12,11 @@ import (
 // "os"
 
 func main() {
+	sq := golesson.Square{X: 5, Y: 6} //30
+	tg := golesson.Triangle{B: 5, C: 6}
+
+	fmt.Println(sq.Area())
+	fmt.Println(tg.Area())
 
 	// Pressing style in Go lang
 	// fmt.Println("sum from 1 to 12: ", utility.ForLoop(12))
@@ -58,12 +65,38 @@ func main() {
 	x := "Hello world"
 	var y *string = &x
 	*y = "Hi Mom"
-	golesson.PointerLesson(3)
+	// golesson.PointerLesson(3)
+	golesson.Process()
 	// fmt.Printf("Type of x is: %T\n", x)
 	// changeValue(&x)
 	// fmt.Printf("Value of y is: %v\n", y)
 	// fmt.Printf("Reference value of y is: %v\n", *y)
 	// fmt.Println("Address of x is:", &x)
+	taskFn := func(ctx context.Context) <-chan int {
+		dst := make(chan int)
+		n := 1
+		go func() {
+			for {
+				select {
+				case <-ctx.Done():
+					fmt.Println("exe cancel")
+					return // returning not to leak the go routine
+				case dst <- n:
+					n++
+				}
+			}
+		}()
+		return dst
+	}
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel() // cancel when we are finished consuming integers
+	for n := range taskFn(ctx) {
+		fmt.Println(n)
+		if n == 5 {
+			break
+		}
+	}
 
 }
 
