@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	golesson "main/go-lesson"
 )
@@ -72,31 +71,41 @@ func main() {
 	// fmt.Printf("Value of y is: %v\n", y)
 	// fmt.Printf("Reference value of y is: %v\n", *y)
 	// fmt.Println("Address of x is:", &x)
-	taskFn := func(ctx context.Context) <-chan int {
-		dst := make(chan int)
-		n := 1
-		go func() {
-			for {
-				select {
-				case <-ctx.Done():
-					fmt.Println("exe cancel")
-					return // returning not to leak the go routine
-				case dst <- n:
-					n++
-				}
-			}
-		}()
-		return dst
-	}
 
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel() // cancel when we are finished consuming integers
-	for n := range taskFn(ctx) {
-		fmt.Println(n)
-		if n == 5 {
-			break
-		}
-	}
+	// taskFn := func(ctx context.Context) <-chan int {
+	// 	dst := make(chan int)
+	// 	n := 1
+	// 	go func() {
+	// 		for {
+	// 			select {
+	// 			case <-ctx.Done():
+	// 				fmt.Println("exe cancel")
+	// 				return // returning not to leak the go routine
+	// 			case dst <- n:
+	// 				n++
+	// 			}
+	// 		}
+	// 	}()
+	// 	return dst
+	// }
+
+	// ctx, cancel := context.WithCancel(context.Background())
+	// defer cancel() // cancel when we are finished consuming integers
+	// for n := range taskFn(ctx) {
+	// 	fmt.Println(n)
+	// 	if n == 5 {
+	// 		break
+	// 	}
+	// }
+	var newString *string = new(string)   // returns a pointer to a newly allocated => 0xc00005c0d0
+	var useMap2 *[]string = new([]string) // returns a newly allocated array => &[]
+	newlyString := newString
+	*newString = "this is the value of newlyString also"
+	fmt.Println(*newString)
+	fmt.Println(*newlyString)
+	//------------------
+	fmt.Println(useMap2)
+	fmt.Println(*useMap2)
 
 }
 
