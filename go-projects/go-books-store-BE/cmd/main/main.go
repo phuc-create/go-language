@@ -75,7 +75,7 @@ func main() {
 
 	// Insert Book------------------------------------------------------------------------------------
 	POSTGRES_INSERT_STATEMENT := `INSERT INTO books (id,book_name,book_price,author_id) VALUES($1,$2,$3,$4)`
-	_, err = db.Exec(POSTGRES_INSERT_STATEMENT, 6, "Software Engineer", 34000000, 2)
+	_, err = db.Exec(POSTGRES_INSERT_STATEMENT)
 	if err != nil {
 		panic(err)
 	}

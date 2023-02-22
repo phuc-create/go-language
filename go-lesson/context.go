@@ -11,13 +11,13 @@ func sendValueIntoContext(ctx context.Context) context.Context {
 
 func getValueFromContext(ctx context.Context) {
 	value := ctx.Value("string_text")
-	fmt.Println(value)
+	fmt.Printf("the value of the context is: %s\n", value)
 }
 
 func Process() {
 	fmt.Println("start context")
 	ctx := context.Background()
-	fmt.Println(ctx.Done())
+	ctx.Done()
 	ctx = sendValueIntoContext(ctx)
 	getValueFromContext(ctx)
 }
