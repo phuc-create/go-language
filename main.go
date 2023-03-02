@@ -11,11 +11,21 @@ import (
 // "os"
 
 func main() {
-	sq := golesson.Square{X: 5, Y: 6} //30
-	tg := golesson.Triangle{B: 5, C: 6}
+	golesson.GetPersonInterface()
+	// 	per1 := golesson.BasicInformation{UUID: "111", Name: "sam", Age: 23, Phone: "0123123"}
+	// 	per2 := golesson.BasicInformation{UUID: "222", Name: "torento", Age: 24, Phone: "234234"}
+	// 	per3 := golesson.BasicInformation{UUID: "333", Name: "sam", Age: 21, Phone: "112909"}
+	// 	extra1 := golesson.ExtraInformation{UUID: "111", Address: "234/123/1 Aurocoer"}
+	// 	extra2 := golesson.ExtraInformation{UUID: "333", Address: "1 Minentan, District 20/2223"}
+	//
+	// 	pers := []golesson.PersonInterface{per1, per2, per3, extra1, extra2}
+	// 	golesson.CombineBasedOnUuid(pers)
 
-	fmt.Println(sq.Area())
-	fmt.Println(tg.Area())
+	// 	sq := golesson.Square{X: 5, Y: 6} //30
+	// 	tg := golesson.Triangle{B: 5, C: 6}
+	//
+	// 	fmt.Println(sq.Area())
+	// 	fmt.Println(tg.Area())
 
 	// Pressing style in Go lang
 	// fmt.Println("sum from 1 to 12: ", utility.ForLoop(12))
@@ -65,7 +75,7 @@ func main() {
 	var y *string = &x
 	*y = "Hi Mom"
 	// golesson.PointerLesson(3)
-	golesson.Process()
+	// golesson.Process()
 	// fmt.Printf("Type of x is: %T\n", x)
 	// changeValue(&x)
 	// fmt.Printf("Value of y is: %v\n", y)
