@@ -9,5 +9,5 @@ targets.log
 dryrun.log
 /targets.log
 /dryrun.log
-
+/.DS_Store
 *.log
