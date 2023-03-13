@@ -107,16 +107,18 @@ func main() {
 	// 		break
 	// 	}
 	// }
-	var newString *string = new(string)   // returns a pointer to a newly allocated => 0xc00005c0d0
-	var useMap2 *[]string = new([]string) // returns a newly allocated array => &[]
-	newlyString := newString
-	*newString = "this is the value of newlyString also"
-	fmt.Println(*newString)
-	fmt.Println(*newlyString)
-	//------------------
-	fmt.Println(useMap2)
-	fmt.Println(*useMap2)
+	// var newString *string = new(string)   // returns a pointer to a newly allocated => 0xc00005c0d0
+	// var useMap2 *[]string = new([]string) // returns a newly allocated array => &[]
+	// newlyString := newString
+	// *newString = "this is the value of newlyString also"
+	// fmt.Println(*newString)
+	// fmt.Println(*newlyString)
+	// //------------------
+	// fmt.Println(useMap2)
+	// fmt.Println(*useMap2)
 
+	sum := golesson.SimpleCalculatorFuncUseGenericsType([]int{1, 2, 4, 3, 2})
+	fmt.Println(sum)
 }
 
 // func count(name string, c chan string) {
