@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	golesson "main/go-lesson"
 )
 
@@ -11,7 +10,7 @@ import (
 // "os"
 
 func main() {
-	golesson.GetPersonInterface()
+	// golesson.GetPersonInterface()
 	// 	per1 := golesson.BasicInformation{UUID: "111", Name: "sam", Age: 23, Phone: "0123123"}
 	// 	per2 := golesson.BasicInformation{UUID: "222", Name: "torento", Age: 24, Phone: "234234"}
 	// 	per3 := golesson.BasicInformation{UUID: "333", Name: "sam", Age: 21, Phone: "112909"}
@@ -75,7 +74,7 @@ func main() {
 	var y *string = &x
 	*y = "Hi Mom"
 	// golesson.PointerLesson(3)
-	// golesson.Process()
+	golesson.Process()
 	// fmt.Printf("Type of x is: %T\n", x)
 	// changeValue(&x)
 	// fmt.Printf("Value of y is: %v\n", y)
@@ -117,8 +116,8 @@ func main() {
 	// fmt.Println(useMap2)
 	// fmt.Println(*useMap2)
 
-	sum := golesson.SimpleCalculatorFuncUseGenericsType([]int{1, 2, 4, 3, 2})
-	fmt.Println(sum)
+	// sum := golesson.SimpleCalculatorFuncUseGenericsType([]int{1, 2, 4, 3, 2})
+	// fmt.Println(sum)
 }
 
 // func count(name string, c chan string) {
